@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "84640516255",
+    "project_id": "gritng-mynotes-20e13",
+    "storage_bucket": "gritng-mynotes-20e13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84640516255:android:d01686071464d2d3493aaa",
+        "android_client_info": {
+          "package_name": "com.gritng.mynotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoShQKpLoAZluivwwnYZm-WlJ-DagygIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
