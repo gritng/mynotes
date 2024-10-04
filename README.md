@@ -1,0 +1,2 @@
+# mynotes
+flutter learning project
