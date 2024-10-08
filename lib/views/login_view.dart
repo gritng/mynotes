@@ -84,10 +84,16 @@ class _LoginViewState extends State<LoginView> {
                     await showErrorDialog(
                         context, 'Email/password accounts are not enabled');
                   } else {
-                    await showErrorDialog(context, e.code);
+                    await showErrorDialog(
+                      context,
+                      'Error ${e.code}',
+                    );
                   }
                 } catch (e) {
-                  await showErrorDialog(context, e.toString());
+                  await showErrorDialog(
+                    context,
+                    e.toString(),
+                  );
                 }
               },
               child: const Text('Login')),
