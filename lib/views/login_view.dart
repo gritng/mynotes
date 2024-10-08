@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
-
 import 'package:mynotes/constants/routes.dart';
+import 'package:mynotes/utils/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -68,13 +67,27 @@ class _LoginViewState extends State<LoginView> {
                   );
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'user-not-found') {
-                    devtools.log('User not found');
+                    await showErrorDialog(context, 'User not found');
+                  } else if (e.code == 'invalid-credential') {
+                    await showErrorDialog(context, 'Invalid credential');
                   } else if (e.code == 'wrong-password') {
-                    devtools.log('Wrong password');
+                    await showErrorDialog(context, 'Invalid password');
+                  } else if (e.code == 'invalid-email') {
+                    await showErrorDialog(context, 'Invalid email format');
+                  } else if (e.code == 'user-disabled') {
+                    await showErrorDialog(
+                        context, 'This user has been disabled');
+                  } else if (e.code == 'too-many-requests') {
+                    await showErrorDialog(
+                        context, 'Too many attempts. Try again later.');
+                  } else if (e.code == 'operation-not-allowed') {
+                    await showErrorDialog(
+                        context, 'Email/password accounts are not enabled');
                   } else {
-                    devtools.log('something else happen');
-                    devtools.log(e.code);
+                    await showErrorDialog(context, e.code);
                   }
+                } catch (e) {
+                  await showErrorDialog(context, e.toString());
                 }
               },
               child: const Text('Login')),
